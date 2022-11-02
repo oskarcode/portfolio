@@ -1,0 +1,33 @@
+{% extends 'inventory/base.html'%}
+
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<h2> Recipe List and Cost</h2> 
+
+          <table>
+                    <tr>
+                    <th>Menue Item</th>
+                    <th>Ingredients</th>
+                    <th>Quntatity</th>
+                    <th>Cost</th>
+                    </tr>
+                    <tr>
+           <a href="{% url 'add-recipe' %}" > Add Recipe</a>
+                    {% for item in reciperequirement_list %}
+                    </tr>
+                    <tr>
+                    <td>{{ item.menu_item }}</td>
+                    <td>{{ item.ingredient }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.new_cost }}</td>
+                    <td><a href="{% url 'update-recipe' item.id %}">Update Recipe</a></td>
+                    </tr>
+                    {% endfor %}
+{% endblock %}
+          
+          
+          

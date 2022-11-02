@@ -1,0 +1,29 @@
+
+{% extends 'inventory/base.html'%}
+
+
+{% block head %}
+         
+{% endblock %}
+
+{% block content %}
+<h2> Menue List</h2>
+          <table>
+                    <tr>
+                    <th>title</th>
+                    <th>price</th>
+                    </tr>
+                    <tr>
+<a href="{% url 'add-menue' %}" > Add Menue</a>
+                    {% for item in menueitem_list %}
+                    </tr>
+                    <tr>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.price }}</td>
+                    <td><a href="{% url 'update-menue' item.id %}">Update Menue</a></td>
+                    </tr>
+                    {% endfor %}
+{% endblock %}
+          
+          
+          

@@ -1,0 +1,30 @@
+{% extends 'inventory/base.html'%}
+
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<h2> Recipe List and Cost</h2> 
+<a href="{% url 'add-purchase' %}" > Add Purchase</a>
+
+          <table>
+                    <tr>
+                    <th>Purchased Item</th>
+                    <th>Time</th>
+                    </tr>
+                    <tr>
+                    {% for item in purchase_list %}
+                    </tr>
+                    <tr>
+                              <td>{{ item.purchased_item }}</td>
+                              <td>{{ item.timestamp }}</td>
+                    </tr>
+                    {% endfor %}
+{% endblock %}
+          
+          
+          
+
+

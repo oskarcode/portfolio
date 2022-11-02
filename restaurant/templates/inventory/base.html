@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://www.codecademy.com/favicon.ico"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'inventory/style.css' %}"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Restaurant App</title>
+
+    {% block head %}{% endblock %}
+
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="header-first-row">
+    
+          <h1 class="title">Restaurant App </h1>
+        </div>
+        <nav class="navbar">
+          <a class="nav-item" href="{% url 'inventory' %}">Inventory Ingredients</a>
+          <a class="nav-item" href="{% url 'menue' %}">Menue</a>
+          <a class="nav-item" href="{% url 'recipe' %}">Recipe</a>
+          <a class="nav-item" href="{% url 'purchase' %}">Purchase</a> 
+          <a class="nav-item" href="{% url 'profit' %}">Profit</a> 
+          <a class="nav-item" href="{% url 'cost' %}">Cost</a> 
+          <a class="nav-item" href="{% url 'revenue' %}">Revenue</a> 
+          
+         
+        </nav>
+        <div>
+          <a class="nav-item" href="{% url 'logout' %}" style="color: black;">Log Out </a> 
+        </div>
+      </header>
+      <main>{% block content %}{% endblock %}</main>
+    </div>
+  </body>
+</html>

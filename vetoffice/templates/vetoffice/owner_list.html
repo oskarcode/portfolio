@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+
+{% block content %}
+<h2>Owner List</h2>
+<table id="owners">
+  <tr>
+    <th>First</th>
+    <th>Last</th>
+    <th>Phone</th>
+      <th> </th>
+      <th> </th>
+  </tr>
+	<tr>
+  {% for owner in owner_list %}
+  </tr>
+  <tr>
+    <td>{{ owner.first_name }}</td>
+    <td>{{ owner.last_name }}</td>
+    <td>{{ owner.phone }}</td>
+    <!-- Add your code below -->
+    <td><a href="{% url 'ownerupdate' owner.id %}">Edit</a></td>
+    <td><a href="{% url 'ownerdelete' owner.id %}">Delete</a></td>
+    
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

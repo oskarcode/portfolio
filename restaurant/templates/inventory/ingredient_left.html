@@ -1,0 +1,31 @@
+
+{% extends 'inventory/base.html'%}
+
+
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+<h2> Ingredients Left</h2>
+<table>
+          <tr>
+          <th>name</th>
+          <th>quantity</th>
+          </tr>
+          <tr>
+<a href="{% url 'add-ingredient' %}"> Add Ingredient </a>
+          {% for item in ingredient_list %}
+          </tr>
+          <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td><a href="{% url 'update-ingredient' item.id %}"  class='btn noHover'>Update Ingredient</a></td>
+          <td><a href="{% url 'delete-ingredient' item.id %}" class='btn noHover'>Delete Ingredient</a></td>
+          </tr>
+          {% endfor %}
+
+{% endblock %}
+
+
+

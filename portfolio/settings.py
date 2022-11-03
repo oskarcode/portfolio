@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-9o^!5shqqavj@#@&36+y+nl3csjw2%hr3(wrzh@be05fd5ita)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1','44.201.197.11','mycodeforever','ec2-44-201-197-11.compute-1.amazonaws.com'
+    'mycodeforever.com','www.mycodeforever.com'
 ]
 
 # Application definition

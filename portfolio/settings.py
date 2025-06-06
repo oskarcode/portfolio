@@ -10,13 +10,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9o^!5shqqavj@#@&36+y+nl3csjw2%hr3(wrzh@be05fd5ita)'
+# Use environment variable for SECRET_KEY
+SECRET_KEY = os.environ.get('SECRET_KEY', 'ohe013b+cz)u#e#gm-$_mirj5zj%ke!!f=27j6ln0t(v8#5#ca')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Use environment variable for DEBUG setting
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = [
-    'mycodeforever.com','www.mycodeforever.com'
+    'mycodeforever.com', 'www.mycodeforever.com',
+    'localhost', '127.0.0.1'  # Added for local development
 ]
 
 # Application definition
@@ -79,6 +82,7 @@ DATABASES = {
 }
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -129,3 +133,13 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+# Security Settings
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_BROWSER_XSS_FILTER = True
+    X_FRAME_OPTIONS = 'DENY'
